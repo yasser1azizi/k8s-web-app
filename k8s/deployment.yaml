@@ -26,6 +26,12 @@ spec:
           image: k8s-web-app:latest
           imagePullPolicy: IfNotPresent
 
+          envFrom:
+            - configMapRef:
+                name: k8s-web-app-config
+            - secretRef:
+                name: k8s-web-app-secret
+
           ports:
             - containerPort: 8000
 
