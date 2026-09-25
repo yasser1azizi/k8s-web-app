@@ -17,6 +17,7 @@ spec:
         app: k8s-web-app
 
     spec:
+      serviceAccountName: k8s-web-app
       securityContext:
         runAsNonRoot: true
         runAsUser: 1000
