@@ -15,6 +15,5 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
-      - name: CI test
-        run: echo "Security pipeline started successfully!"
+      - name: Build Docker image
+        run: docker build -t k8s-web-app:ci .
