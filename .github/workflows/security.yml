@@ -29,19 +29,22 @@ jobs:
 
       - name: Build Docker image
         run: docker build -t k8s-web-app:ci .
-      - name: Tag Docker image
-        if: github.event_name == 'push'
-        run: docker tag k8s-web-app:ci ghcr.io/${{ github.repository_owner }}/k8s-web-app:latest
-      - name: Push Docker image
-        if: github.event_name == 'push'
-        run: docker push ghcr.io/${{ github.repository_owner }}/k8s-web-app:latest
+
       - name: Trivy vulnerability scan
         uses: aquasecurity/trivy-action@master
-
-      - name: Install Cosign
-        uses: sigstore/cosign-installer@v3
         with:
           image-ref: k8s-web-app:ci
           severity: HIGH,CRITICAL
           ignore-unfixed: true
           exit-code: 1
+
+      - name: Tag Docker image
+        if: github.event_name == 'push'
+        run: docker tag k8s-web-app:ci ghcr.io/${{ github.repository_owner }}/k8s-web-app:latest
+
+      - name: Push Docker image
+        if: github.event_name == 'push'
+        run: docker push ghcr.io/${{ github.repository_owner }}/k8s-web-app:latest
+
+      - name: Install Cosign
+        uses: sigstore/cosign-installer@v3
