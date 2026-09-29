@@ -1,0 +1,34 @@
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  name: verify-image-signature
+
+spec:
+  background: false
+
+  validationFailureAction: Enforce
+
+  rules:
+    - name: verify-k8s-web-app-signature
+
+      match:
+        any:
+          - resources:
+              kinds:
+                - Pod
+
+      verifyImages:
+        - imageReferences:
+            - ghcr.io/yasser1azizi/k8s-web-app:*
+
+          required: true
+
+          verifyDigest: true
+
+          mutateDigest: true
+
+          key: |-
+            -----BEGIN PUBLIC KEY-----
+            MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE/VAV02L3TAdsWC9zLO0GVEsmuOPB
+            mk/gwsa0QEYk6ufF6rQM+CDhX1RWHb2ZK6eNRKOeBVh4yycvIQTP7jfGWg==
+            -----END PUBLIC KEY-----

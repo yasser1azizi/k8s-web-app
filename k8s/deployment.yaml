@@ -15,9 +15,12 @@ spec:
     metadata:
       labels:
         app: k8s-web-app
+      
 
     spec:
       serviceAccountName: k8s-web-app
+      imagePullSecrets:
+        - name: ghcr-secret
       securityContext:
         runAsNonRoot: true
         runAsUser: 1000
@@ -26,7 +29,7 @@ spec:
 
       containers:
         - name: web-app
-          image: k8s-web-app:latest
+          image: ghcr.io/yasser1azizi/k8s-web-app@sha256:0acaca723713d874281c72e6861d393c14b0560026c40d86b0a636cb57159651
           imagePullPolicy: IfNotPresent
 
           securityContext:
