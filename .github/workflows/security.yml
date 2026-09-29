@@ -55,3 +55,8 @@ jobs:
           COSIGN_PRIVATE_KEY: ${{ secrets.COSIGN_PRIVATE_KEY }}
         run: |
           cosign sign --yes --key env://COSIGN_PRIVATE_KEY ghcr.io/${{ github.repository_owner }}/k8s-web-app:latest
+
+      - name: Verify Docker image signature
+        if: github.event_name == 'push'
+        run: |
+          cosign verify --key cosign.pub ghcr.io/${{ github.repository_owner }}/k8s-web-app:latest
