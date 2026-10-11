@@ -3,3 +3,9 @@ variable "cluster_name" {
   type        = string
   default     = "devops-cluster"
 }
+
+variable "api_host_port" {
+  description = "Port for the local Kind Kubernetes cluster"
+  type        = number
+  default     = 6443
+}

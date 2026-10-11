@@ -25,3 +25,22 @@ resource "terraform_data" "kind_cluster" {
   }
 }
 
+resource "local_file" "kind_config" {
+
+  filename = "${path.module}/kind-config.yaml"
+
+  content = <<-EOT
+    kind: Cluster
+    apiVersion: kind.x-k8s.io/v1alpha4
+    name: ${var.cluster_name}
+    nodes:
+      - role: control-plane
+        extraPortMappings:
+          - containerPort: 30080
+            hostPort: 8080
+            protocol: TCP
+    networking:
+      apiServerAddress: "127.0.0.1"
+      apiServerPort: ${var.api_host_port}
+  EOT
+}
