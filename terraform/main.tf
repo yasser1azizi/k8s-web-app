@@ -10,3 +10,18 @@ terraform {
 }
 
 provider "local" {}
+
+resource "terraform_data" "kind_cluster" {
+  input = var.cluster_name
+
+  provisioner "local-exec" {
+    command = <<-EOT
+      if kind get clusters | grep -Fxq "${var.cluster_name}"; then
+        echo "Kind cluster '${var.cluster_name}' already exists. Leaving it unchanged."
+      else
+        kind create cluster --name "${var.cluster_name}"
+      fi
+    EOT
+  }
+}
+
