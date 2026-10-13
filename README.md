@@ -8,47 +8,7 @@ The project demonstrates how security controls can be integrated throughout the 
 
 ## Architecture
 
-```text
-                         Developer
-                             │
-                             ▼
-                       GitHub Repository
-                             │
-                             ▼
-                    GitHub Actions CI/CD
-                             │
-                 ┌───────────┴───────────┐
-                 │                       │
-                 ▼                       ▼
-          Docker Build              Trivy Scan
-                 │
-                 ▼
-          GitHub Container Registry
-                 │
-                 ▼
-            Cosign Signing
-                 │
-                 ▼
-        Kubernetes / Minikube
-                 │
-        ┌────────┴────────┐
-        │                 │
-        ▼                 ▼
-   Kyverno Policy     RBAC / NetworkPolicy
-        │                 │
-        └────────┬────────┘
-                 ▼
-          k8s-web-app Pod
-                 │
-                 ▼
-            FastAPI API
-                 │
-                 ▼
-          Prometheus Metrics
-                 │
-                 ▼
-              Grafana
-```
+![Architecture](docs/architecture.svg)
 
 ---
 

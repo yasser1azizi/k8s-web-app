@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="660" height="940" viewBox="0 0 660 940">
+<defs><marker id="a" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#fff"/></marker></defs>
+<rect width="100%" height="100%" fill="#000"/>
+<g fill="none" stroke="#fff" stroke-width="1.6">
+<rect x="150.0" y="30" width="220" height="40" rx="6"/>
+<rect x="150.0" y="102" width="220" height="40" rx="6"/>
+<rect x="150.0" y="174" width="220" height="40" rx="6"/>
+<path d="M260 70 V102" marker-end="url(#a)"/>
+<path d="M260 142 V174" marker-end="url(#a)"/>
+<rect x="150.0" y="262" width="220" height="40" rx="6"/>
+<rect x="420.0" y="262" width="200" height="40" rx="6"/>
+<path d="M260 214 V262" marker-end="url(#a)"/>
+<path d="M260 238 H520 V262" marker-end="url(#a)"/>
+<rect x="150.0" y="334" width="220" height="40" rx="6"/>
+<path d="M260 302 V334" marker-end="url(#a)"/>
+<rect x="150.0" y="406" width="220" height="40" rx="6"/>
+<path d="M260 374 V406" marker-end="url(#a)"/>
+<rect x="150.0" y="478" width="220" height="40" rx="6"/>
+<path d="M260 446 V478" marker-end="url(#a)"/>
+<rect x="40.0" y="566" width="200" height="40" rx="6"/>
+<rect x="280.0" y="566" width="200" height="40" rx="6"/>
+<path d="M260 518 V542"/>
+<path d="M140 542 H380"/>
+<path d="M140 542 V566" marker-end="url(#a)"/>
+<path d="M380 542 V566" marker-end="url(#a)"/>
+<path d="M140 606 V630"/>
+<path d="M380 606 V630"/>
+<path d="M140 630 H380"/>
+<rect x="150.0" y="654" width="220" height="40" rx="6"/>
+<path d="M260 630 V654" marker-end="url(#a)"/>
+<rect x="150.0" y="726" width="220" height="40" rx="6"/>
+<path d="M260 694 V726" marker-end="url(#a)"/>
+<rect x="150.0" y="798" width="220" height="40" rx="6"/>
+<path d="M260 766 V798" marker-end="url(#a)"/>
+<rect x="150.0" y="870" width="220" height="40" rx="6"/>
+<path d="M260 838 V870" marker-end="url(#a)"/>
+</g>
+<g fill="#fff" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle">
+<text x="260" y="55.0">Developer</text>
+<text x="260" y="127.0">GitHub Repository</text>
+<text x="260" y="199.0">GitHub Actions CI/CD</text>
+<text x="260" y="287.0">Docker Build</text>
+<text x="520" y="287.0">Trivy Scan</text>
+<text x="260" y="359.0">GitHub Container Registry</text>
+<text x="260" y="431.0">Cosign Signing</text>
+<text x="260" y="503.0">Local Kubernetes / Kind</text>
+<text x="140" y="591.0">Kyverno Policy</text>
+<text x="380" y="591.0">RBAC / NetworkPolicy</text>
+<text x="260" y="679.0">k8s-web-app Pod</text>
+<text x="260" y="751.0">FastAPI API</text>
+<text x="260" y="823.0">Prometheus Metrics</text>
+<text x="260" y="895.0">Grafana</text>
+</g>
+</svg>
